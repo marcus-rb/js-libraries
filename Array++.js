@@ -17,3 +17,11 @@ Array.prototype.objectify = function() {
   }
   return thisObj;
 }
+
+Array.prototype.flatten = function() {
+  let operand = this;
+  function flattener(array) {
+    return array.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattener(val)) : acc.concat(val), []);
+  }
+  return flattener(operand);
+}
