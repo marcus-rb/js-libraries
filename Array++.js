@@ -26,7 +26,7 @@ Array.prototype.flatten = function() {
   return flattener(operand);
 }
 
-export {Array.prototype.divide};
+/*export {Array.prototype.divide};
 export {Array.prototype.log};
 export {Array.prototype.objectify};
-export {Array.prototype.flatten};
+export {Array.prototype.flatten};*/
