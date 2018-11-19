@@ -26,6 +26,31 @@ Array.prototype.flatten = function() {
   return flattener(operand);
 }
 
+Array.prototype.forEvery = function(...args) {
+  let tempArr = [];
+  const incr = parseInt(args[0]);
+  if (args.length === 2 && args[1] != true) {
+    const callback = (x) => args[1](x);
+    
+    for (let i = incr-1; i<this.length; i+=incr) {
+      tempArr.push(callback(this[i]));
+    }
+
+  } else if (args.length === 3 && args[1] === true) {
+    console.log("now we should include every item");
+    const callback = (x) => args[2](x);
+
+    for (let i = incr-1; i<this.length; i++) {
+      if (i % incr == 0) {
+        tempArr.push(callback(this[i]));
+      } else {
+        tempArr.push(this[i]);
+      }
+    }
+  }
+  return tempArr;
+}
+
 /*export {Array.prototype.divide};
 export {Array.prototype.log};
 export {Array.prototype.objectify};
