@@ -1,3 +1,5 @@
+"use strict";
+
 //vv Array.prototype.log vv
 //Logs the array to the console with each element being given an index to represent its position in the array
 
