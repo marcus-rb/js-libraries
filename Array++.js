@@ -37,7 +37,6 @@ Array.prototype.forEvery = function(...args) {
     }
 
   } else if (args.length === 3 && args[1] === true) {
-    console.log("now we should include every item");
     const callback = (x) => args[2](x);
 
     for (let i = incr-1; i<this.length; i++) {
