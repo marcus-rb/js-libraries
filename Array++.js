@@ -1,6 +1,13 @@
+//vv Array.prototype.log vv
+//Logs the array to the console with each element being given an index to represent its position in the array
+
 Array.prototype.log = function() {
-  console.log(this);
+  console.table(this);
 }
+
+//__________________________________________________
+//vv Array.prototype.divide vv
+//Returns a new array where the original array is divided into sub-arrays of x length
 
 Array.prototype.divide = function(x) {
   let temp = [];
@@ -10,6 +17,10 @@ Array.prototype.divide = function(x) {
   return temp;
 }
 
+//_______________________________________________
+//vv Array.prototype.objectify vv
+//Puts two and two values in an array together and pairs them as property and value. Returns a new object.
+
 Array.prototype.objectify = function() {
   let thisObj = {}
   for (let i = 0; i < this.length; i+=2) {
@@ -17,6 +28,10 @@ Array.prototype.objectify = function() {
   }
   return thisObj;
 }
+
+//______________________________________________
+//vv Array.protype.flatten vv
+//Returns a completely flattened array; all subarrays will be flattened. E.g.: const flattened = [1,[2,3,4],[["five",8],"d]]; flattened = [1,2,3,4,"five",9,"d"]
 
 Array.prototype.flatten = function() {
   let operand = this;
@@ -26,9 +41,18 @@ Array.prototype.flatten = function() {
   return flattener(operand);
 }
 
+//_______________________________________________
+//vv Array.prototype.flatten vv
+//Takes either two or three parameters. Returns a new array, with every n-th item modified by the callback function.
+//The value true can be included as the second argument. In that case, all original items of the array will also be added alongside the modifed ones
+//Examples: const firstArray = [1,1,1,1,1,1,1,1,1]; const newArray = firstArray.forEvery(2,true, item => item+1)
+//This gives newArray = [1,2,1,2,1,2,1,2,1]. Alternatively: const newArray = firstArray.forEvery(2, item => item+1)
+//Second methid gives newArray = [2,2,2,2]
+
 Array.prototype.forEvery = function(...args) {
   let tempArr = [];
   const incr = parseInt(Math.round(args[0]));
+  
   if (args.length === 2 && args[1] != true) {
     const callback = (x) => args[1](x);
     
