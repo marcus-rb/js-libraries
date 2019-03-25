@@ -49,10 +49,3 @@ const removeClass = (targetElement, cssClass) => {
 }
 
 const addClass = (targetElement, cssClass) => targetElement.className += cssClass;
-
-
-// -- test area --
-const test1 = new styleList("color: black", "font-size: 3em", "background-color: blue", "height: 200px", "width: 300px");
-const testdiv = gbId("testdiv");
-
-style(testdiv, test1);
